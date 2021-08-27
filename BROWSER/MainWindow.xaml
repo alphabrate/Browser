@@ -1,0 +1,61 @@
+﻿<Window x:Class="BROWSER.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BROWSER"
+        xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1080" Width="1920" Loaded="Window_Loaded">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="1881*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40px"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40px"></ColumnDefinition>
+                <ColumnDefinition Width="40px"></ColumnDefinition>
+                <ColumnDefinition Width="40px"></ColumnDefinition>
+                <ColumnDefinition Width="40px"></ColumnDefinition>
+                <ColumnDefinition Width="1600px"></ColumnDefinition>
+                <ColumnDefinition Width="320px"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button Click="Button_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="40px" Height="40px" BorderThickness="0" Foreground="Black" FontSize="24">
+                ◁
+            </Button>
+            <Button Click="Button_Click" Grid.Column="1" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="40px" Height="40px" BorderThickness="0" Foreground="Black" FontSize="24">
+                ▷
+            </Button>
+            <Button Click="Button_Click_1" Grid.Column="2" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="40px" Height="40px" BorderThickness="0" Foreground="Black" FontSize="24">
+                <Image Source="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGsp56apqikgCukJhDIoa6w4gvjO5_uHHt3w" Height="20px"></Image>
+            </Button>
+            <Button Click="Button_Click_2" Grid.Column="3" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="40px" Height="40px" BorderThickness="0" Foreground="Black" FontSize="24">
+                ⌂
+            </Button>
+
+            <Grid  Grid.Column="4" Background="#f3D3DF"  Width="1600px" Height="40px">
+                <Border BorderBrush="Black" BorderThickness="0" HorizontalAlignment="Center" Height="40" VerticalAlignment="Top" Width="1600" CornerRadius="50">
+                    <TextBox KeyDown="area_KeyDown" x:Name="area" Foreground="Black" FontSize="20"  Margin="17,0,-17,0" Background="Transparent" BorderThickness="0" Height="30" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" >
+                        <TextBox.RenderTransform>
+                            <TransformGroup>
+                                <TranslateTransform Y="7"/>
+                            </TransformGroup>
+                        </TextBox.RenderTransform>
+                    </TextBox>
+                </Border>
+            </Grid>
+            <AccessText Width="137" FontSize="24px" Height="31" Grid.Column="5" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,5,183,4">Xchuangc</AccessText>
+
+
+        </Grid>
+        <cefSharp:ChromiumWebBrowser x:Name="chrome" Address="https://xchuangc.github.io/start" Grid.Row="1" Grid.ColumnSpan="2"></cefSharp:ChromiumWebBrowser>
+    </Grid>
+</Window>
